@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*::before,
+*::after,
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	border: 0;
+	appearance: none;
+}
+:root {
+	--roxo-01: #6871e0;
+	--roxo-02: #6255c6;
+	--azul-Escuro: #343970;
+	--preto-texto: #131428;
+	--white-smoked-default: #fafcfc;
+	--white-smoked-01: #f1f1f1;
+	--white-smoked-02: #f1f1f1;
+	--ligth-white: rgba(255, 255, 255, 0.97);
+	--preto-texto-default: #0d1e37;
+	--preto-dark: #181818;
+}
+body {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Inter', 'sans-serif';
+	line-height: 1.6;
+	padding: 0 2.5rem;
+	background-color: var(--white-smoked-02);
+}
+
+.container {
+	max-width: 570px;
+	min-width: 350px;
+	background: linear-gradient(
+		var(--white-smoked-01) -180deg,
+		var(--roxo-01) -10%,
+		var(--roxo-02) 200%
+	);
+	box-shadow:
+		0 8px 16px rgba(0, 0, 0, 0.05),
+		0 3px 6px var(--roxo-02);
+	border-radius: 9px;
+	padding: 0.5rem;
+	filter: blur();
+	backdrop-filter: blur(90px);
+}
+
+figure {
+	font-family: 'Poppins', sans-serif;
+	background-color: var(--roxo-01);
+	border-radius: 8px;
+	gap: 0.6rem;
+	width: 100%;
+	padding: 14px 10px;
+	color: var(--white-smoked-01);
+	font-size: 100%;
+	transition: 0.5s;
+	max-height: 100%;
+	overflow: hidden;
+}
+.card {
+	display: grid;
+	width: 100%;
+	animation: slow 0.5s forwards;
+	transform-origin: bottom;
+}
+@keyframes slow {
+	from {
+		opacity: 0.5;
+		margin-top: 10px;
+		transform: translate3d(0, -6px, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}
+ul {
+	margin: 14px 0;
+	li {
+		text-align: left;
+		width: 100%;
+		border-bottom: 2px solid (var(--preto-texto));
+		padding: 6px;
+		& span {
+			color: var(--preto-texto-default);
+			font-weight: 600;
+			font-family: 'Inter', sans-serif;
+		}
+	}
+}
+.name {
+	text-align: center;
+	padding: 10px 0;
+}
+button {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 12px 14px;
+	height: 45px;
+	width: 100%;
+	display: inline-block;
+	border-radius: 200px;
+	background-color: var(--preto-texto);
+	color: var(--white-smoked-01);
+	letter-spacing: 0.4px;
+	font-weight: 500;
+	border-bottom: 8px solid var(--preto-dark);
+	cursor: pointer;
+	overflow: hidden;
+	transition:
+		0.5s background-color,
+		opacity,
+		letter-spacing;
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		left: 0;
+		right: 0;
+		bottom: -24px;
+		padding: 0;
+		border-bottom: 10px solid transparent;
+	}
+	&:hover {
+		background-color: var(--preto-texto-default);
+		color: var(--white-smoked-default);
+		opacity: 0.9;
+		transition: 0.5s;
+		transition-delay: 0.1s;
+		border: 0;
+		&::after {
+			border-bottom: 0 solid transparent;
+			border-top: px solid var(--preto-texto);
+			top: 0;
+			z-index: 1;
+		}
+	}
+}
+h3 {
+	text-align: center;
+	color: var(--preto-dark);
+}
+picture {
+	margin-top: 14px;
+	margin: 0 auto;
+	height: 120px;
+	width: 120px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* border-radius: 50%; */
+	clip-path: ellipse(50% 50%);
+	overflow: hidden;
+	img {
+		border-radius: 50%;
+		max-width: 100%;
+		height: 100%;
+		width: 100%;
+		display: block;
+	}
+}
+
+span {
+	color: #131428;
+	font-weight: 600;
+}

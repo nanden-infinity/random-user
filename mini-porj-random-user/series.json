@@ -1,0 +1,27 @@
+[
+	{
+		"title": "Inception",
+		"body": "Um ladrão que invade sonhos recebe uma missão impossível: implantar uma ideia na mente de alguém.",
+		"duration": "148 min"
+	},
+	{
+		"title": "The Matrix",
+		"body": "Um hacker descobre a verdade sobre a realidade e o seu papel na guerra contra as máquinas.",
+		"duration": "136 min"
+	},
+	{
+		"title": "Interstellar",
+		"body": "Uma equipa viaja através de um buraco de minhoca para salvar a humanidade.",
+		"duration": "169 min"
+	},
+	{
+		"title": "The Dark Knight",
+		"body": "Batman enfrenta o Joker, um criminoso caótico que ameaça Gotham.",
+		"duration": "152 min"
+	},
+	{
+		"title": "Avatar",
+		"body": "Um soldado entra no mundo de Pandora e envolve-se com os habitantes locais.",
+		"duration": "162 min"
+	}
+]
