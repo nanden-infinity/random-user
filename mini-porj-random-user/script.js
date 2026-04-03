@@ -7,6 +7,7 @@ function fetchUser() {
 		.then(resp => resp.json())
 		.then(body => {
 			const [data] = body.results;
+			hideSpinner()
 			displayUser(data);
 		});
 }
@@ -19,7 +20,7 @@ function displayUser(user) {
 	}
 
 	createUser(user);
-	hideSpinner();
+
 }
 // ShowSpinner
 function showSpinner() {
