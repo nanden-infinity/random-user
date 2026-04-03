@@ -1,36 +1,54 @@
-const buttonRandomUser = document.querySelector('button');
 const cardFigure = document.querySelector('figure .card');
+const buttonUser = document.querySelector('button');
 
-function randomUser() {
-	async function getUser(user) {
-		cardFigure.innerHTML = '';
-		const response = await (await fetch(user)).json();
-		createUser(response);
+function fetchUser() {
+	showSpinner();
+	fetch('https://randomuser.me/api/')
+		.then(resp => resp.json())
+		.then(body => {
+			const [data] = body.results;
+			displayUser(data);
+		});
+}
+// DisplayUser
+function displayUser(user) {
+	if (user.gender === 'female') {
+		document.body.style.backgroundColor = 'var(--roxo-02)';
+	} else {
+		document.body.style.backgroundColor = 'var(--preto-texto-default)';
 	}
 
-	getUser('https://randomuser.me/api/');
+	createUser(user);
+	hideSpinner();
 }
-
-
-function createUser(content) {
-	const data = content.results;
-	data.forEach(data => {
-		const contentHTML = `
-		<div class="card">
-		<picture>
-		<img src="${data.picture.large}" alt="">
+// ShowSpinner
+function showSpinner() {
+	document.querySelector('.spinner').classList.remove('hidden');
+	document.querySelector('button').lastElementChild.textContent = '';
+}
+// HideSpinner
+function hideSpinner() {
+	document.querySelector('.spinner').classList.add('hidden');
+	document.querySelector('button').lastElementChild.textContent =
+	buttonUser.lastElementChild.textContent;
+}
+// Create User Content
+function createUser(user) {
+	return (cardFigure.innerHTML = `<picture>
+		<img src="${user.picture.large}" alt="">
 		</picture>
 		<ul class="dethas">
-		<h2 class="name">${data.name.first} ${data.name.last}</h2>
-		<li><span>Email: </span>${data.email}</li>
-		<li><span>Phone: </span>${data.phone}</li>
-		<li><span>Location: </span>${data.location.name}</li>
-		<li><span>Age: </span>${data.dob.age}</li>
-		</ul>
-		</div>`;
-		cardFigure.insertAdjacentHTML('beforeend', contentHTML);
-	});
-}
-
-buttonRandomUser.addEventListener('click', randomUser);
-document.addEventListener("DOMContentLoaded",randomUser)
+		<h2 class="name">${user.name.first} ${user.name.last}</h2>
+		<li><span>Email: </span>${user.email}</li>
+		<li><span>Phone: </span>${user.phone}</li>
+		<li><span>Location: </span>${user.location.city}</li>
+		<li><span>Age: </span>${user.dob.age}</li>
+		</ul>`);
+	}
+	
+	
+	function init() {
+		buttonUser.addEventListener('click', fetchUser);
+		fetchUser();
+	}
+	document.addEventListener('DOMContentLoaded', init);

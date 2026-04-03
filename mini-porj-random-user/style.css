@@ -27,7 +27,7 @@ body {
 	justify-content: center;
 	flex-direction: column;
 	align-items: center;
-	min-height: 100vh;
+	height: 100vh;
 	font-family: 'Inter', 'sans-serif';
 	line-height: 1.6;
 	padding: 0 2.5rem;
@@ -60,21 +60,20 @@ figure {
 	padding: 14px 10px;
 	color: var(--white-smoked-01);
 	font-size: 100%;
-	transition: 0.5s;
-	max-height: 100%;
+
 	overflow: hidden;
 }
 .card {
 	display: grid;
 	width: 100%;
 	animation: slow 0.5s forwards;
-	transform-origin: bottom;
+	transition: .5s;
+	transform-origin: left;
 }
 @keyframes slow {
 	from {
 		opacity: 0.5;
-		margin-top: 10px;
-		transform: translate3d(0, -6px, 0);
+		transform: translate3d(0, -16px, 0);
 	}
 	to {
 		opacity: 1;
@@ -102,11 +101,12 @@ ul {
 button {
 	position: relative;
 	display: flex;
-	flex-direction: column;
+	justify-content: center;
+	flex-direction: row-reverse;
 	padding: 12px 14px;
 	height: 45px;
 	width: 100%;
-	display: inline-block;
+	/* display: inline-block; */
 	border-radius: 200px;
 	background-color: var(--preto-texto);
 	color: var(--white-smoked-01);
@@ -114,7 +114,7 @@ button {
 	font-weight: 500;
 	border-bottom: 8px solid var(--preto-dark);
 	cursor: pointer;
-	overflow: hidden;
+
 	transition:
 		0.5s background-color,
 		opacity,
@@ -166,9 +166,4 @@ picture {
 		width: 100%;
 		display: block;
 	}
-}
-
-span {
-	color: #131428;
-	font-weight: 600;
 }
