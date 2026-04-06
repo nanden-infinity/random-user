@@ -53,28 +53,32 @@ body {
 
 figure {
 	font-family: 'Poppins', sans-serif;
-	background-color: var(--roxo-01);
+	/* background-color: var(--roxo-01); */
 	border-radius: 8px;
 	gap: 0.6rem;
 	width: 100%;
 	padding: 14px 10px;
-	color: var(--white-smoked-01);
-	font-size: 100%;
+	/* color: var(--white-smoked-01); */
+
 
 	overflow: hidden;
 }
-figure p.text-center {
-	text-align: center;
-	font-size: 1.5rem;
-	padding: 10px;
-}
+
 .card {
 	display: grid;
+	gap: 8px;
+	grid-template-columns: 1fr 1fr;
+	padding: 5px;
 	width: 100%;
 	animation: slow 0.5s forwards;
 	transition: 0.5s;
 	transform-origin: left;
 }
+	div:hover{
+			background-color: var(--preto-dark);
+			color: var(--white-smoked-default);
+			cursor: pointer;
+		}
 @keyframes slow {
 	from {
 		opacity: 0.5;
@@ -171,4 +175,11 @@ picture {
 		width: 100%;
 		display: block;
 	}
+}
+
+div,
+figure,
+div {
+	display: grid;
+	grid-template-columns: 1fr;
 }
