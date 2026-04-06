@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*::before,
+*::after,
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	border: 0;
+	appearance: none;
+}
+:root {
+	--roxo-01: #6871e0;
+	--roxo-02: #6255c6;
+	--sucess: #11b952;
+	--danger: #ee0000;
+	--azul-Escuro: #343970;
+	--preto-texto: #131428;
+	--preto-light: #bababa;
+	--white-smoked-default: #fafcfc;
+	--white-smoked-01: #f1f1f1;
+	--white-smoked-02: #f1f1f1;
+	--ligth-white: rgba(255, 255, 255, 0.97);
+	--preto-texto-default: #0d1e37;
+	--pink: #ee4815;
+	--pinkHover: #f16d44;
+	--preto-dark: #181818;
+	--cols-3: 1fr 1fr 4fr;
+}
+body {
+	font-family: 'Inter', 'sans-serif';
+	line-height: 1.6;
+	padding: 0 2.5rem;
+	background-color: var(--white-smoked-02);
+}
+h1.sucesso,
+h2.danger {
+	margin: 0 auto;
+	margin-top: 30px;
+	padding: 20px 4rem;
+	text-align: center;
+}
+h1.sucesso {
+	background-color: var(--sucess);
+	color: var(--white-smoked-default);
+}
+
+h2.danger {
+	background-color: var(--danger);
+	color: var(--white-smoked-default);
+}
