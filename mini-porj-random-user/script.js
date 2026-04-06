@@ -4,11 +4,24 @@ const buttonUser = document.querySelector('button');
 function fetchUser() {
 	showSpinner();
 	fetch('https://randomuser.me/api/')
-		.then(resp => resp.json())
+		.then(resp => {
+			if (!resp.ok) {
+				throw new Error(' Request Failed❗️');
+			}
+			return resp.json();
+		})
 		.then(body => {
 			const [data] = body.results;
-			hideSpinner()
+			hideSpinner();
 			displayUser(data);
+		})
+		.catch(error => {
+
+			document.querySelector('figure').innerHTML = `<p class="text-center">${error.message}</p>
+				<button>
+					<div class="spinner hidden"></div>
+					Generate User</button>`;
+			showSpinner();
 		});
 }
 // DisplayUser
@@ -20,7 +33,6 @@ function displayUser(user) {
 	}
 
 	createUser(user);
-
 }
 // ShowSpinner
 function showSpinner() {
@@ -31,7 +43,7 @@ function showSpinner() {
 function hideSpinner() {
 	document.querySelector('.spinner').classList.add('hidden');
 	document.querySelector('button').lastElementChild.textContent =
-	buttonUser.lastElementChild.textContent;
+		buttonUser.lastElementChild.textContent;
 }
 // Create User Content
 function createUser(user) {
@@ -45,11 +57,10 @@ function createUser(user) {
 		<li><span>Location: </span>${user.location.city}</li>
 		<li><span>Age: </span>${user.dob.age}</li>
 		</ul>`);
-	}
-	
-	
-	function init() {
-		buttonUser.addEventListener('click', fetchUser);
-		fetchUser();
-	}
-	document.addEventListener('DOMContentLoaded', init);
+}
+
+function init() {
+	buttonUser.addEventListener('click', fetchUser);
+	fetchUser();
+}
+document.addEventListener('DOMContentLoaded', init);

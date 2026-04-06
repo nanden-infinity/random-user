@@ -63,11 +63,16 @@ figure {
 
 	overflow: hidden;
 }
+figure p.text-center {
+	text-align: center;
+	font-size: 1.5rem;
+	padding: 10px;
+}
 .card {
 	display: grid;
 	width: 100%;
 	animation: slow 0.5s forwards;
-	transition: .5s;
+	transition: 0.5s;
 	transform-origin: left;
 }
 @keyframes slow {
