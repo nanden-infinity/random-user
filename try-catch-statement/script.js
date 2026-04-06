@@ -64,6 +64,7 @@ const getPost = async post => {
 	} catch (error) {
 		console.log(error.message);
 	}
+  return post
 };
 // HideSpinner
 function hideSpinner() {
@@ -98,4 +99,11 @@ document.querySelector('form').addEventListener('submit', e => {
 	getPost(+inputValue);
 	input.value = '';
 });
-document.addEventListener('DOMContentLoaded', () => getPost(5));
+document.addEventListener('DOMContentLoaded', () => {
+ const min = Math.min(4, 8, 12);
+ const max = Math.max(20, 25, 44);
+
+ const users = Math.floor(Math.random() * (max - min + 1)) + min;
+ const val = getPost(users)
+ console.log(val)
+});
