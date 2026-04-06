@@ -54,15 +54,15 @@ async function getUsers(c) {
 	const dataEl = data;
 	const article = document.createElement('article');
 	dataEl.forEach(d => {
-			const figure = document.createElement('figure');
+		const figure = document.createElement('figure');
 		figure.innerHTML = `
 		 
 
 			 <div class="card"><h4>${d.name}<p></h4>${d.email}</div>
 
 	 `;
-	 article.appendChild(figure)
-	 document.querySelector('body').appendChild(article);
+		article.appendChild(figure);
+		document.querySelector('body').appendChild(article);
 	});
 	c();
 	console.log(data, '1');
@@ -71,7 +71,7 @@ getUsers(function getUsers2() {
 	const response = fetch('https://jsonplaceholder.typicode.com/users').then(
 		res => res,
 	);
-     response
+	response
 		.then(d => d.json())
 		.then(d => {
 			const section = document.createElement('section');
@@ -83,3 +83,59 @@ getUsers(function getUsers2() {
 			return d;
 		});
 });
+async function getAllData() {
+	/* 
+	const movies = await getData('./movies.json');
+	const series = await getData('./series.jåson');
+	const actores = await getData('./actors.json'); */
+}
+
+getAllData();
+async function getData(url) {
+	const response = await fetch(url);
+	const body = await response.json();
+	console.log(body);
+}
+
+async function getDateMoveAll() {
+	//PEND este caso o fetch acontecer pela orden certa de cima para  baixo
+	const movies = await fetch('./movies.json');
+	const moviesResp = await movies.json();
+	const series = await fetch('./series.json');
+	const seriesResp = await series.json();
+	const actores = await fetch('./actors.json');
+	const actoresResp = await actores.json();
+	console.log(moviesResp, seriesResp, actoresResp);
+}
+
+getDateMoveAll();
+
+//PEND Aqui vou usar PromiseAll
+
+async function getAllFetch() {
+	const [movieResp, serieResp, actorsResp] = await Promise.all([
+		fetch('./movies.json'),
+		fetch('./series.json'),
+		fetch('./actors.json'),
+	]);
+	const movies = await movieResp.json();
+	const series = await serieResp.json();
+	const actors = await actorsResp.json();
+	console.log(movies, series, actors);
+}
+
+console.log('////FETCH AND THEN ')
+async function getAllFetch2() {
+	const [movies, series, actors] = await Promise.all([
+		fetch('./movies.json').then(resp => resp.json()),
+		fetch('./series.json').then(resp => resp.json()),
+		fetch('./actors.json').then(resp => resp.json()),
+	]);
+	// const movies = await movieResp.json()
+	// const series = await serieResp.json()
+	// const actors = await actorsResp.json()
+	console.log(movies, series, actors);
+}
+
+getAllFetch();
+getAllFetch2();
